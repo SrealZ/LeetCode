@@ -28,14 +28,13 @@ class Solution:
         :type s: str
         :rtype: int
         """
-        start = -1
-        maxLen = 0
+        start = maxLen = 0
         usedChar = {}
         for i in range(len(s)):
             if s[i] in usedChar and start <= usedChar[s[i]]:
-                start = usedChar[s[i]]
+                start = usedChar[s[i]] + 1
             usedChar[s[i]] = i
-            maxLen = max(maxLen, i - start)
+            maxLen = max(maxLen, i - start + 1)
         return maxLen
 
 
